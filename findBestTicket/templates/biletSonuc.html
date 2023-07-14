@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otobüs Sefer Bilgileri</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+.top-bar{
+  
+  background: yellowgreen;
+    padding-left: 20%;
+    margin-bottom: 20px;
+
+}
+.result .info label{
+  font-weight: bold;
+    font-size: large;
+    padding: 3.5%;
+    padding-top: 10px;
+}
+.top-bar label{
+  font-weight: bold;
+    font-size: large;
+    padding: 4.5%;
+}
+
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 30px;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+h2 {
+  font-size: 24px;
+  color: #555;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+
+.result {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.result .info {
+  flex: 1;
+
+}
+
+h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.buy-button {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  align-self: flex-end;
+}
+
+.buy-button:hover {
+  background-color: #45a049;
+}
+</style>
+<body>
+   
+    <header>
+        <h1>Bilet Arama Sonuçları</h1>
+      </header>
+    
+      <main>
+        <form method="POST">
+            <div class="filtre">		
+                <select name="filtre" onchange="this.form.submit()">
+                    <option value="seciniz">seciniz</option>
+                    <option value="azalan">azalan</option>
+                    <option value="artan">artan</option>
+                </select>	
+            </div>
+            </form>
+        <section class="search-results">
+
+          <div class="top-bar" >
+            <label>FİRMA</label>
+            <label>KALKIŞ</label>
+            <label>VARIŞ</label>
+            <label>TARİH</label>
+            <label>SAAT</label>
+            <label>FİYAT</label>
+
+          </div>
+          {% for i in range(0,sortdatalen,8) %}
+    
+          <div class="result">
+            <div class="info">
+   
+              <label> <img src="{{url_for('static', filename=sefer_lst[i])}}" style="width: 15%; height: 100%;" /></label>
+              <label>{{sefer_lst[i+1]}}</label>
+              <label>{{sefer_lst[i+2]}}</label>
+              <label>{{sefer_lst[i+3]}}</label>
+              <label>{{sefer_lst[i+4]}}</label>
+              <label>{{sefer_lst[i+5]}}</label>
+              <label>{{sefer_lst[i+6]}}</label>
+            </div>
+            <a href={{sefer_lst[i+7]}} class="buy-button">Satın Al</a>
+          </div>
+        
+        </section>
+        {% endfor %} 
+  
+      </main>
+</body>
+</html>

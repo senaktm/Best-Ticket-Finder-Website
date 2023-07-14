@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+     .firma-ara{
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
+.form-arka-plan{
+    background-image: url("https://cdn.filepicker.io/api/file/1WxRtkAQG5h70aoPQdGA/convert?format=jpeg&quality=50");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+.acik-renk-form{
+    background: rgba(255, 255, 255, 0.58);
+}
+.siyah-cerceve{
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+        body{
+            background-color: pink;
+            background-image: url("{{url_for('static', filename='arkaplan6.jpg')}}");
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+        }
+        .btn{
+            margin-left: 200%;
+        }
+
+    </style>
+</head>
+<body>
+   
+<section class="search-banner text-white py-3 form-arka-plan" id="search-banner">
+    <div class="container py-5 my-5">
+        <div class="row text-center pb-4">
+            <div class="col-md-12">
+                <h2 class="text-white siyah-cerceve" >Otobüs Bileti Ara,</h2>
+                <h2 class="text-white siyah-cerceve"> EN UCUZUNU BUL</h2>
+            </div>
+        </div>
+        <form method="POST">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card acik-renk-form">
+                    <div class="card-body">
+                        <div class="row">
+                         
+                           
+                            <div class="col-md-4">
+                                <div class="form-group ">
+                                    <label for="exampleDataList" class="form-label fw-bold fs-8 m-0">KALKIS YERI</label>
+                                    <input class="form-control inp-height inp-width" list="datalistOptions" id="exampleDataList" placeholder="Sehir Sec" name="exampleDataList">
+                                    <datalist id="datalistOptions">
+                                        {% for i in range(sehirlerLen) %}
+                                        <option value={{sehirler[i]}} SELECTED>{{sehirler[i]}}</option>
+
+                                        {% endfor %} 
+                                      </datalist>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group ">
+                                    <label for="exampleDataList2" class="form-label fw-bold fs-8 m-0">VARIS YERI</label>
+                                    <input class="form-control inp-height inp-width" list="datalistOptions2" id="exampleDataList2" placeholder="Sehir Sec" name="exampleDataList2">
+                                    <datalist id="datalistOptions2">
+                                        {% for i in range(sehirlerLen) %}
+                                        <option value={{sehirler[i]}} SELECTED>{{sehirler[i]}}</option>
+
+                                        {% endfor %} 
+                                      </datalist>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group ">
+                                    <label for="gidisTarihi" class="form-label fw-bold fs-8 m-0">GIDIS TARIHI</label>
+                                    <input type="date" name="gidisTarihi" id="" class="form-control inp-height inp-width">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                     
+                        <div class="row">
+                          
+                            <div class="col-md-3">
+                                 <button class="btn btn-warning" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+</section>
+</body>
+</html>
